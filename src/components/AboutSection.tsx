@@ -38,16 +38,16 @@ export const AboutSection: React.FC = () => {
                 "I'm not presenting myself as someone who has already reached the destination. I'm showing you what I'm building on the way there."
               </p>
               <span className="block mt-2 text-[10px] font-mono uppercase tracking-widest text-white/40">
-                — Daniel Peculiar
+                — {PERSONAL_INFO.fullName}
               </span>
             </div>
           </div>
 
           {/* Pillars / Right Column */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
-            <div className="space-y-6">
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
               {/* Pillar 1 */}
-              <div className="p-6 border border-white/10 bg-white/[0.02]">
+              <div className="p-5 border border-white/10 bg-white/[0.02]">
                 <div className="flex items-center gap-3 mb-2">
                   <Terminal size={18} className="text-[#55FB46]" />
                   <span className="font-mono text-xs uppercase tracking-widest text-white">
@@ -55,12 +55,12 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
-                  Building with React, TypeScript, Node.js, Express, and MongoDB. Writing modular, type-safe components and clean semantic markup.
+                  Building with React, TypeScript, Node.js, Express, and modern styling. Writing modular, type-safe components and clean semantic markup.
                 </p>
               </div>
 
               {/* Pillar 2 */}
-              <div className="p-6 border border-white/10 bg-white/[0.02]">
+              <div className="p-5 border border-white/10 bg-white/[0.02]">
                 <div className="flex items-center gap-3 mb-2">
                   <Cpu size={18} className="text-[#55FB46]" />
                   <span className="font-mono text-xs uppercase tracking-widest text-white">
@@ -68,12 +68,12 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
-                  Prompt engineering, API orchestration, and structured generation. Exploring how LLMs and diffusion models transform product conception and content velocity.
+                  Prompt engineering, structured generation, and agentic workflows. Exploring how generative AI elevates product iteration and creative velocity.
                 </p>
               </div>
 
               {/* Pillar 3 */}
-              <div className="p-6 border border-white/10 bg-white/[0.02]">
+              <div className="p-5 border border-white/10 bg-white/[0.02]">
                 <div className="flex items-center gap-3 mb-2">
                   <Compass size={18} className="text-[#55FB46]" />
                   <span className="font-mono text-xs uppercase tracking-widest text-white">
@@ -81,13 +81,13 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
-                  Focusing on user flow, visual restraint, zero-pill discipline, and full-viewport presence. Creating experiences with intentional negative space and typographic hierarchy.
+                  Focusing on user journey, visual restraint, zero-pill discipline, and full-viewport presence. Creating experiences with intentional negative space.
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/50">
-              <span>STATUS: UNDERGRADUATE</span>
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/50">
+              <span>STATUS: SOFTWARE ENGINEERING</span>
               <a
                 href="#contact"
                 className="text-white hover:text-[#55FB46] transition-colors flex items-center gap-1"

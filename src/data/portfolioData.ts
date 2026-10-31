@@ -19,86 +19,127 @@ export const PERSONAL_INFO = {
   email: 'dolajide705@gmail.com',
   githubUrl: 'https://github.com',
   linkedinUrl: 'https://linkedin.com',
-  instagramUrl: 'https://instagram.com'
+  instagramUrl: 'https://instagram.com',
+  whatsappUrl: 'https://wa.me/2348000000000?text=Hi%20Daniel,%20I%20would%20like%20to%20connect%20regarding%20a%20project.'
 };
 
 export const CREDIBILITY_CHIPS = ['WEB', 'AI', 'REACT', 'PRODUCT'];
 
+export const NAV_LINKS = [
+  { label: 'WORK', href: '#work', id: 'work' },
+  { label: 'ABOUT', href: '#about', id: 'about' },
+  { label: 'EXPERIMENTS', href: '#experiments', id: 'experiments' },
+  { label: 'STACK', href: '#stack', id: 'stack' },
+  { label: 'CONTACT', href: '#contact', id: 'contact' }
+] as const;
+
 export const PROJECTS: Project[] = [
   {
-    id: 'finsight',
+    id: 'ikoko-restaurant',
     number: '01',
-    title: 'FinSight',
-    category: 'FINANCIAL PRODUCT',
-    tagline: 'Personal finance & cash flow intelligence for everyday builders.',
-    description: 'A focused expense tracking and cash flow application engineered to solve the friction of tracking personal liquidity, recurring subscriptions, and savings milestones without bloated banking UI.',
-    stage: 'Active Development',
-    year: '2025 – 2026',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'IndexedDB', 'Recharts'],
-    highlights: [
-      'Interactive cash flow & daily burn rate telemetry',
-      'Net worth calculator factoring liquid vs illiquid assets',
-      'Categorized expense entry with instant monthly summaries',
-      'AI prompt template for receipt itemization and tax categorizations'
-    ],
-    architectureNotes: 'Built with a local-first offline architecture using client-side IndexedDB caching to ensure zero latency and full privacy, paired with modern responsive charts.',
-    previewType: 'app'
-  },
-  {
-    id: 'golden-schools',
-    number: '02',
-    title: 'Golden Schools LMS',
-    category: 'ACADEMIC PLATFORM',
-    tagline: 'School operations & student portal engineered for secondary education.',
-    description: 'A modular learning management platform engineered to streamline attendance logs, grade reporting, and student-parent-teacher communication for secondary schools.',
-    stage: 'Prototype & Architecture',
+    title: 'IKÖKÖ Restaurant',
+    cardTitle: 'IKÖKÖ — Restaurant Experience',
+    category: 'Restaurant / Hospitality',
+    tagline: 'Contemporary dining experience, menu presentation and reservation flow.',
+    description:
+      'A restaurant website concept developed for IKÖKÖ, featuring a professional restaurant presentation, menu exploration and reservation experience.',
+    stage: 'Live Website',
     year: '2025',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT Auth'],
-    highlights: [
-      'Multi-role access flow for Administrators, Teachers, Students and Parents',
-      'Continuous assessment ledger and automated terminal report sheet generator',
-      'Parent notification channel for fee status and attendance alerts',
-      'Clean tabular records management with real-time input validation'
+    liveUrl: 'https://ikoko-chi.vercel.app/',
+    isConcept: false,
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Accessible Forms', 'Responsive UI'],
+    verifiedFeatures: [
+      'Restaurant landing page',
+      'Brand introduction & story',
+      'Menu presentation & categories',
+      'Reservation form with validation',
+      'Customer information collection',
+      'WhatsApp reservation submission',
+      'Location and contact information'
     ],
-    architectureNotes: 'Designed with Express REST endpoints and MongoDB documents modeling school terms, subjects, and student cohorts with strict role authorization guards.',
-    previewType: 'lms'
+    reservationFields: [
+      'Full name',
+      'Phone number',
+      'Optional email',
+      'Date',
+      'Time',
+      'Number of guests',
+      'Occasion',
+      'Special requests'
+    ],
+    businessObjective:
+      'Demonstrates the ability to develop a complete website experience for a restaurant business with friction-free reservations.',
+    designDirection:
+      'Deep warm culinary dark palette with refined typography, atmospheric dish presentations, and clean menu category filtering.',
+    responsiveConsiderations:
+      'Mobile-first reservation sheets, large tactile touch targets for phone users, and zero layout shift on portable viewports.',
+    previewTheme: 'restaurant'
   },
   {
-    id: 'mindset-shift',
+    id: 'vault-club-ikeja',
+    number: '02',
+    title: 'Vault Club GRA Ikeja',
+    cardTitle: 'Vault Club — Premium Nightlife',
+    category: 'Premium Hospitality / Restaurant / Nightlife',
+    tagline: 'High-end nightlife, lounge atmosphere, and VIP booking interface.',
+    description:
+      'A premium restaurant, lounge, and nightlife website concept for Vault Club GRA Ikeja. The experience is designed to reflect an upscale atmosphere while helping customers explore services, discover the venue, and make reservations.',
+    stage: 'Hospitality Website Concept',
+    year: '2025',
+    liveUrl: undefined, // Concept prototype; no unverified live link
+    isConcept: true,
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    verifiedFeatures: [
+      'Services section',
+      'Reviews section',
+      'Location section (GRA Ikeja)',
+      'Reservations',
+      'Interactive booking-related experiences'
+    ],
+    reservationFields: [
+      'Guest name',
+      'Contact phone',
+      'VIP Booth tier (Onyx / Gold)',
+      'Bottle service preferences',
+      'Arrival time'
+    ],
+    businessObjective:
+      'Establish a distinctive luxury nightlife presence for an upscale Ikeja destination, encouraging VIP table bookings and bottle service inquiries.',
+    designDirection:
+      'High-contrast luxury nightlife aesthetics, deep obsidian surfaces, refined gold metallic accents, and bold editorial typography.',
+    responsiveConsiderations:
+      'Fast-loading visual sections, collapsible VIP packages, and single-tap maps/directions integration for evening patrons.',
+    previewTheme: 'nightlife'
+  },
+  {
+    id: 'tej-salon',
     number: '03',
-    title: 'Mindset Shift',
-    category: 'AI MEDIA & CONTENT SYSTEM',
-    tagline: 'Generative AI content engine & digital media architecture.',
-    description: 'An AI-assisted content brand and production system producing high-engagement visual essays, psychological frameworks, and motivational digital narratives.',
-    stage: 'Active Content Engine',
-    year: '2025 – Present',
-    technologies: ['Prompt Engineering', 'Leonardo AI', 'HeyGen', 'CapCut', 'Automation'],
-    highlights: [
-      'Systematic prompt chains for consistent cinematic visual style generation',
-      'Script pacing and AI voice synthesis workflow for narrative retention',
-      'Cross-platform asset rendering and automated distribution calendar',
-      'Organic audience growth framework driven by high-retention micro-content'
+    title: 'Tej Salon Ikeja Sanctuary',
+    cardTitle: 'Tej Salon — Beauty & Style',
+    category: 'Beauty / Salon',
+    tagline: 'Sanctuary atmosphere, service showcase and customer contact flow.',
+    description:
+      'A salon website concept developed to give Tej Salon a professional digital presence, present its business information and communicate its services to potential customers.',
+    stage: 'Live Website',
+    year: '2025',
+    liveUrl: 'https://tej-salon-ikeja-sanctuary.vercel.app/',
+    isConcept: false,
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Service Showcase', 'Booking CTA Flow'],
+    verifiedFeatures: [
+      'Visual identity & sanctuary atmosphere',
+      'Homepage presentation',
+      'Service information catalog',
+      'Business & sanctuary information',
+      'Responsive mobile navigation',
+      'Contact options & appointment flow'
     ],
-    architectureNotes: 'Combines multimodal generative pipelines: prompt engineering in Gemini/Claude, visual creation in Leonardo AI, and high-cadence editing in CapCut/HeyGen.',
-    previewType: 'media'
-  },
-  {
-    id: 'prompt-sandbox',
-    number: '04',
-    title: 'Flow & Component Lab',
-    category: 'DIGITAL EXPERIMENTS',
-    tagline: 'Micro-interactions, prompt chaining prototypes & interactive UI explorations.',
-    description: 'A continuous laboratory of interactive frontend components, tactile design systems, and prompt engineering utilities developed while learning new design and engineering concepts.',
-    stage: 'Experimental Build',
-    year: '2026',
-    technologies: ['React', 'TypeScript', 'Motion', 'Canvas API', 'Gemini SDK'],
-    highlights: [
-      'Prompt pipeline chaining for structured JSON output generation',
-      'Full-viewport dark UI interactions with zero-pill typographic discipline',
-      'Generative particle and geometry canvas experiments running at 60 FPS'
-    ],
-    architectureNotes: 'Serves as Daniel\'s sandbox for vetting bleeding-edge libraries, UI physics, and AI model reasoning before graduating into production products.',
-    previewType: 'experiment'
+    businessObjective:
+      'Showcase Tej Salon’s sanctuary atmosphere and beauty offerings, making it effortless for prospective clients to browse treatments and connect.',
+    designDirection:
+      'Minimalist, clean aesthetic with warm neutral undertones, delicate editorial typography, and high-clarity service categories.',
+    responsiveConsiderations:
+      'Thumb-accessible booking buttons on smartphones, streamlined service lists with clear pricing indicators, and fast performance.',
+    previewTheme: 'salon'
   }
 ];
 
@@ -108,54 +149,66 @@ export const EXPERIMENTS: ExperimentItem[] = [
     title: 'AI WORKFLOWS',
     subtitle: 'Assisted Engineering Pipelines',
     tag: 'SYSTEMS',
-    description: 'Integrating LLMs directly into code scaffolding, API mocking, and test fixture generation to accelerate iteration cycles without sacrificing code comprehension.',
+    description:
+      'Integrating LLMs directly into code scaffolding, API mocking, and test fixture generation to accelerate iteration cycles without sacrificing code comprehension.',
     tools: ['Claude 3.7', 'Gemini 2.5', 'Cursor / VS Code'],
-    takeaways: 'AI works best as a tireless pair-programmer and architecture critic when given tight specifications and typed boundaries.'
+    takeaways:
+      'AI works best as a tireless pair-programmer and architecture critic when given tight specifications and typed boundaries.'
   },
   {
     id: 'prompt-engineering',
     title: 'PROMPT ENGINEERING',
     subtitle: 'Deterministic Context Design',
     tag: 'LLM REASONING',
-    description: 'Crafting modular system prompts with XML tagging, few-shot examples, and JSON Schema enforcement to yield deterministic, production-grade outputs.',
+    description:
+      'Crafting modular system prompts with XML tagging, few-shot examples, and JSON Schema enforcement to yield deterministic, production-grade outputs.',
     tools: ['System Prompts', 'Structured Outputs', 'Context Windows'],
-    takeaways: 'Treat prompts like compiled code: test edge cases, enforce schemas, and minimize ambiguity.'
+    takeaways:
+      'Treat prompts like compiled code: test edge cases, enforce schemas, and minimize ambiguity.'
   },
   {
     id: 'vibe-coding',
     title: 'VIBE CODING & RAPID BUILDS',
     subtitle: 'From Conceptual Spec to Working UI in Hours',
     tag: 'PRODUCT VELOCITY',
-    description: 'Exploring human-in-the-loop rapid prototyping: articulating clear product requirements, reviewing diffs, and refining real web software at 10x traditional speed.',
+    description:
+      'Exploring human-in-the-loop rapid prototyping: articulating clear product requirements, reviewing diffs, and refining real web software at 10x traditional speed.',
     tools: ['Iterative Refinement', 'Full-Stack Scaffolding', 'Vite'],
-    takeaways: 'Velocity without taste is noise. High-speed building requires even sharper design standards.'
+    takeaways:
+      'Velocity without taste is noise. High-speed building requires even sharper design standards.'
   },
   {
     id: 'generative-visuals',
     title: 'GENERATIVE VISUALS',
     subtitle: 'Stylistic Cohesion at Scale',
     tag: 'DIFFUSION MODELS',
-    description: 'Calibrating negative prompts, aspect ratios, lighting parameters, and seed consistency to produce distinctive brand assets rather than generic stock imagery.',
+    description:
+      'Calibrating negative prompts, aspect ratios, lighting parameters, and seed consistency to produce distinctive brand assets rather than generic stock imagery.',
     tools: ['Leonardo AI', 'Midjourney', 'ComfyUI Concepts'],
-    takeaways: 'Consistency requires deep understanding of artistic styles, camera optics, and latent space controls.'
+    takeaways:
+      'Consistency requires deep understanding of artistic styles, camera optics, and latent space controls.'
   },
   {
     id: 'ai-video',
     title: 'AI VIDEO PIPELINES',
     subtitle: 'Automated Synthesis & Editing',
     tag: 'MULTIMODAL',
-    description: 'Chaining text synthesis, automated audio voice generation, avatar synthesis, and timeline cuts to create high-retention social content systems.',
+    description:
+      'Chaining text synthesis, automated audio voice generation, avatar synthesis, and timeline cuts to create high-retention social content systems.',
     tools: ['HeyGen', 'CapCut', 'ElevenLabs'],
-    takeaways: 'The bottleneck in modern content is no longer production volume; it is story structure and emotional resonance.'
+    takeaways:
+      'The bottleneck in modern content is no longer production volume; it is story structure and emotional resonance.'
   },
   {
     id: 'web-experiences',
     title: 'TACTILE WEB EXPERIENCES',
     subtitle: 'Zero-Pill Minimalist Aesthetics',
     tag: 'FRONTEND ARCHITECTURE',
-    description: 'Building web interfaces that rely on typography scale, negative space, and micro-motion rather than generic rounded cards and purple gradients.',
+    description:
+      'Building web interfaces that rely on typography scale, negative space, and micro-motion rather than generic rounded cards and purple gradients.',
     tools: ['Tailwind CSS', 'Canvas API', 'Fluid Typography'],
-    takeaways: 'Minimalism isn\'t empty space; it is the total elimination of everything that doesn\'t serve the thought.'
+    takeaways:
+      "Minimalism isn't empty space; it is the total elimination of everything that doesn't serve the thought."
   }
 ];
 
@@ -177,11 +230,3 @@ export const STACK_CATEGORIES: StackCategory[] = [
     items: ['VS Code', 'GitHub', 'Vercel', 'Figma']
   }
 ];
-
-export const NAV_LINKS = [
-  { label: 'WORK', href: '#work', id: 'work' },
-  { label: 'ABOUT', href: '#about', id: 'about' },
-  { label: 'EXPERIMENTS', href: '#experiments', id: 'experiments' },
-  { label: 'STACK', href: '#stack', id: 'stack' },
-  { label: 'CONTACT', href: '#contact', id: 'contact' },
-] as const;

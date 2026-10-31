@@ -18,7 +18,7 @@ import { StackSection } from './components/StackSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { Logo } from './components/Logo';
-import { NAV_LINKS } from './data/portfolioData';
+import { NAV_LINKS, PERSONAL_INFO } from './data/portfolioData';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,13 +31,12 @@ export default function App() {
       const scrollY = window.scrollY;
       setShowStickyNav(scrollY > 220);
 
-      // Section spy logic
+      // Section spy logic matching original structure
       const sections = ['overview', 'work', 'about', 'experiments', 'stack', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // If top of section is near the upper third of screen
           if (rect.top <= 200 && rect.bottom >= 150) {
             setActiveSection(sectionId);
             break;
@@ -45,7 +44,6 @@ export default function App() {
         }
       }
 
-      // If at the very top
       if (scrollY < 100) {
         setActiveSection('overview');
       }
@@ -95,7 +93,6 @@ export default function App() {
     <div className="bg-black text-white min-h-screen w-full relative selection:bg-[#55FB46] selection:text-black">
       {/* ========================================================================= */}
       {/* STICKY TOP NAV: Appears when scrolled down past the hero                   */}
-      {/* Allows effortless one-click return to upper hero & all sections           */}
       {/* ========================================================================= */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/10 px-5 sm:px-6 md:px-10 lg:px-14 py-3.5 transition-all duration-300 ${
@@ -113,20 +110,12 @@ export default function App() {
           >
             <Logo size={24} />
             <span className="text-xs uppercase tracking-[0.2em] text-white/90 group-hover:text-white transition-colors font-mono">
-              DANIEL P.
+              {PERSONAL_INFO.name}
             </span>
           </button>
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-widest">
-            <button
-              onClick={() => scrollToSection('overview')}
-              className={`transition-colors py-1 ${
-                activeSection === 'overview' ? 'text-[#55FB46]' : 'text-white/60 hover:text-white'
-              }`}
-            >
-              OVERVIEW
-            </button>
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -147,7 +136,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => scrollToSection('contact')}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 border border-white/20 text-xs font-mono text-white hover:border-[#55FB46] hover:text-[#55FB46] transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-white/20 text-xs font-mono text-white hover:border-[#55FB46] hover:text-[#55FB46] transition-colors"
             >
               <span>LET'S BUILD</span>
               <ArrowUpRight size={12} />
@@ -168,8 +157,7 @@ export default function App() {
       </header>
 
       {/* ========================================================================= */}
-      {/* 1. FIRST VIEWPORT: FULL-VIEWPORT HERO EXPERIENCE                          */}
-      {/* Responsive min-h-screen, non-clipping, fully scrollable in both directions */}
+      {/* 1. HERO SECTION                                                           */}
       {/* ========================================================================= */}
       <section
         id="overview"
@@ -212,25 +200,40 @@ export default function App() {
                 <span>EXPLORE WORK</span>
                 <ChevronDown size={13} className="animate-bounce" />
               </button>
-              <span className="hidden sm:inline">NIGERIA // 2026 EDITION</span>
+              <span className="hidden sm:inline">2026 EDITION</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. EDITORIAL PORTFOLIO SECTIONS                                           */}
-      {/* Continuously scrollable down and up with zero clipping or barriers        */}
+      {/* 2. FEATURED WORK (PROJECTS)                                               */}
       {/* ========================================================================= */}
-      <main className="relative w-full bg-black text-white">
-        <ProjectSection />
-        <AboutSection />
-        <ExperimentsSection />
-        <StackSection />
-        <ContactSection />
-      </main>
+      <ProjectSection />
 
-      {/* Global Footer */}
+      {/* ========================================================================= */}
+      {/* 3. ABOUT SECTION                                                          */}
+      {/* ========================================================================= */}
+      <AboutSection />
+
+      {/* ========================================================================= */}
+      {/* 4. EXPERIMENTS SECTION                                                    */}
+      {/* ========================================================================= */}
+      <ExperimentsSection />
+
+      {/* ========================================================================= */}
+      {/* 5. STACK SECTION                                                          */}
+      {/* ========================================================================= */}
+      <StackSection />
+
+      {/* ========================================================================= */}
+      {/* 6. CONTACT SECTION                                                        */}
+      {/* ========================================================================= */}
+      <ContactSection />
+
+      {/* ========================================================================= */}
+      {/* 7. FOOTER                                                                 */}
+      {/* ========================================================================= */}
       <Footer />
 
       {/* Mobile Overlay Menu */}

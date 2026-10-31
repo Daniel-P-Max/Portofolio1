@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ArrowUpRight, CheckCircle2, Terminal, Layers, Sparkles } from 'lucide-react';
+import { X, ExternalLink, CheckCircle2, Target, Palette, Smartphone, Clock, Terminal } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectModalProps {
@@ -79,9 +79,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 BUILD STATUS
               </span>
               <div className="flex items-center gap-2 text-sm text-white font-mono">
-                <span className="w-2 h-2 rounded-full bg-[#55FB46] animate-pulse" />
+                <span
+                  className={`w-2 h-2 rounded-full ${
+                    project.stage === 'Live Website' ? 'bg-[#55FB46]' : 'bg-amber-400'
+                  }`}
+                />
                 <span>{project.stage}</span>
               </div>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-mono text-[#55FB46] hover:underline"
+                >
+                  <span>Open Live Website</span>
+                  <ExternalLink size={12} />
+                </a>
+              )}
             </div>
 
             <div className="md:col-span-2">
@@ -94,142 +109,84 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           </div>
 
-          {/* Interactive UI Mockup / Visual Simulation */}
-          <div>
-            <span className="font-pixel text-xs text-white/40 uppercase block mb-3">
-              INTERFACE SPECIFICATION
-            </span>
-            <div className="bg-[#050505] border border-white/10 p-5 font-mono text-xs text-white/80 relative overflow-hidden">
-              {/* Top window dots */}
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                </div>
-                <div className="text-[10px] text-white/40 tracking-widest uppercase">
-                  {project.id}.telemetry // v1.2
-                </div>
-              </div>
-
-              {/* Custom preview body based on project type */}
-              {project.previewType === 'app' && (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="border border-white/10 p-3 bg-white/[0.02]">
-                      <div className="text-[10px] text-white/40">EST. NET WORTH</div>
-                      <div className="text-base text-white font-medium mt-1">₦ 4,820,000</div>
-                      <div className="text-[10px] text-[#55FB46] mt-0.5">▲ +12.4% vs last mo</div>
-                    </div>
-                    <div className="border border-white/10 p-3 bg-white/[0.02]">
-                      <div className="text-[10px] text-white/40">30-DAY BURN RATE</div>
-                      <div className="text-base text-white font-medium mt-1">₦ 184,500</div>
-                      <div className="text-[10px] text-white/40 mt-0.5">On Target (88%)</div>
-                    </div>
-                    <div className="border border-white/10 p-3 bg-white/[0.02]">
-                      <div className="text-[10px] text-white/40">ACTIVE SUBSCRIPTIONS</div>
-                      <div className="text-base text-white font-medium mt-1">6 Services</div>
-                      <div className="text-[10px] text-white/40 mt-0.5">Auto-renewal tracked</div>
-                    </div>
+          {/* Business Objective & Design Direction */}
+          {(project.businessObjective || project.designDirection) && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-white/10">
+              {project.businessObjective && (
+                <div className="p-4 border border-white/10 bg-white/[0.02]">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#55FB46] uppercase tracking-wider mb-2">
+                    <Target size={14} />
+                    <span>BUSINESS & PRODUCT OBJECTIVE</span>
                   </div>
-                  <div className="border border-white/10 p-3 bg-white/[0.02] flex items-center justify-between">
-                    <span className="text-white/60">AI Smart Categorization:</span>
-                    <span className="text-[#55FB46]">ACTIVE // 99.2% Parser Precision</span>
-                  </div>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                    {project.businessObjective}
+                  </p>
                 </div>
               )}
 
-              {project.previewType === 'lms' && (
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between border border-white/10 p-3 bg-white/[0.02]">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[#55FB46]">//</span>
-                      <span>ACTIVE SESSION: 2025/2026 ACADEMIC CALENDAR</span>
-                    </div>
-                    <span className="text-white/40">TERM 2</span>
+              {project.designDirection && (
+                <div className="p-4 border border-white/10 bg-white/[0.02]">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#55FB46] uppercase tracking-wider mb-2">
+                    <Palette size={14} />
+                    <span>DESIGN DIRECTION</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="border border-white/10 p-3 bg-white/[0.02]">
-                      <div className="text-[10px] text-white/40">PORTAL MODULES</div>
-                      <div className="mt-1 space-y-1 text-white/70">
-                        <div>• Continuous Assessment Ledger</div>
-                        <div>• Terminal Grade Sheet Generator</div>
-                        <div>• Parent SMS & WhatsApp Gateway</div>
-                      </div>
-                    </div>
-                    <div className="border border-white/10 p-3 bg-white/[0.02]">
-                      <div className="text-[10px] text-white/40">SECURITY & AUTH</div>
-                      <div className="mt-1 space-y-1 text-white/70">
-                        <div>• Role Guards: Student / Parent / Admin</div>
-                        <div>• JWT Session Expiry & HTTPOnly Cookies</div>
-                        <div>• Sanitized MongoDB Aggregation Queries</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {project.previewType === 'media' && (
-                <div className="space-y-3">
-                  <div className="border border-white/10 p-3 bg-white/[0.02]">
-                    <div className="text-[10px] text-[#55FB46] uppercase mb-1">
-                      CONTENT REPRODUCTION PIPELINE
-                    </div>
-                    <p className="text-white/80 font-sans text-xs leading-relaxed">
-                      1. Script Conception via Claude/Gemini with psychological hooks → 2. Leonardo AI seed generation for stylized dark cinematic artwork → 3. Synthesized high-fidelity voice track → 4. CapCut timeline auto-sync and subtitle cadence.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2 text-[11px] text-center text-white/60">
-                    <div className="border border-white/10 py-2">PROMPT CHAINS</div>
-                    <div className="border border-white/10 py-2">VISUAL SYNTHESIS</div>
-                    <div className="border border-white/10 py-2">PACING METRICS</div>
-                  </div>
-                </div>
-              )}
-
-              {project.previewType === 'experiment' && (
-                <div className="space-y-3 font-mono">
-                  <div className="border border-white/10 p-3 bg-white/[0.02] flex items-center justify-between">
-                    <span className="text-white/60">Experimental Mode:</span>
-                    <span className="text-[#55FB46]">ACTIVE // Zero-Pill Typography Engine</span>
-                  </div>
-                  <div className="text-xs text-white/70 leading-relaxed">
-                    Benchmarking rendering performance, CSS variable token trees, and reactive canvas pipelines under strict 60 FPS viewport budgets.
-                  </div>
+                  <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light">
+                    {project.designDirection}
+                  </p>
                 </div>
               )}
             </div>
-          </div>
+          )}
 
-          {/* Key Engineering Highlights */}
+          {/* Verified Features */}
           <div>
             <span className="font-pixel text-xs text-white/40 uppercase block mb-3">
               KEY CAPABILITIES & IMPLEMENTATION
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {project.highlights.map((highlight, idx) => (
+              {project.verifiedFeatures.map((feature, idx) => (
                 <div
                   key={idx}
                   className="flex items-start gap-2.5 p-3 border border-white/10 bg-white/[0.02]"
                 >
                   <CheckCircle2 size={15} className="text-[#55FB46] mt-0.5 shrink-0" />
                   <span className="text-xs text-white/80 font-light leading-relaxed">
-                    {highlight}
+                    {feature}
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Architecture Notes */}
-          {project.architectureNotes && (
+          {/* Reservation fields if applicable */}
+          {project.reservationFields && project.reservationFields.length > 0 && (
+            <div className="p-4 border border-white/10 bg-white/[0.02]">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#55FB46] uppercase tracking-wider mb-2">
+                <Clock size={14} />
+                <span>INTEGRATED RESERVATION SPECIFICATIONS</span>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.reservationFields.map((field) => (
+                  <span
+                    key={field}
+                    className="border border-white/15 bg-black/60 px-2.5 py-1 text-[11px] font-mono text-white/80"
+                  >
+                    {field}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Responsive Design Considerations */}
+          {project.responsiveConsiderations && (
             <div className="p-4 border border-white/15 bg-white/[0.02]">
               <div className="flex items-center gap-2 text-xs font-mono text-[#55FB46] uppercase tracking-wider mb-2">
-                <Terminal size={14} />
-                <span>BUILDER ARCHITECTURE NOTE</span>
+                <Smartphone size={14} />
+                <span>RESPONSIVE DESIGN CONSIDERATIONS</span>
               </div>
               <p className="text-xs text-white/70 leading-relaxed font-light">
-                {project.architectureNotes}
+                {project.responsiveConsiderations}
               </p>
             </div>
           )}
@@ -248,12 +205,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               ))}
             </div>
 
-            <button
-              onClick={onClose}
-              className="px-5 py-2.5 border border-white/30 hover:border-white text-xs font-mono uppercase tracking-wider text-white transition-colors"
-            >
-              CLOSE DETAILS
-            </button>
+            <div className="flex items-center gap-3">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 border border-[#55FB46] bg-[#55FB46]/10 text-white hover:bg-[#55FB46] hover:text-black text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-1.5"
+                >
+                  <span>LIVE DEMO</span>
+                  <ExternalLink size={12} />
+                </a>
+              )}
+              <button
+                onClick={onClose}
+                className="px-5 py-2.5 border border-white/30 hover:border-white text-xs font-mono uppercase tracking-wider text-white transition-colors"
+              >
+                CLOSE SPEC
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Copy, Check, Mail, Github, Linkedin, Instagram } from 'lucide-react';
+import { ArrowUpRight, Copy, Check, Mail, MessageSquare, Github, Linkedin, Instagram, MapPin } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
@@ -29,7 +29,7 @@ export const ContactSection: React.FC = () => {
             </span>
           </h2>
           <p className="mt-6 text-white/70 font-light text-base sm:text-lg max-w-xl">
-            Whether you want to discuss a new software concept, collaborate on an experimental product, or talk about engineering and AI pipelines, my inbox is always open.
+            Whether you want to discuss a new software concept, collaborate on an experimental product, or talk about engineering and web pipelines, my inbox is always open.
           </p>
         </div>
 
@@ -62,6 +62,16 @@ export const ContactSection: React.FC = () => {
                 <ArrowUpRight size={14} />
               </a>
 
+              <a
+                href={PERSONAL_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-white/20 hover:border-[#55FB46] text-white hover:text-[#55FB46] font-mono text-xs uppercase tracking-wider transition-all"
+              >
+                <MessageSquare size={14} />
+                <span>CHAT ON WHATSAPP</span>
+              </a>
+
               <button
                 onClick={handleCopyEmail}
                 className="inline-flex items-center gap-2 px-5 py-3 border border-white/20 hover:border-white/50 text-white font-mono text-xs uppercase tracking-wider transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-[#55FB46]"
@@ -87,11 +97,16 @@ export const ContactSection: React.FC = () => {
               DIGITAL PROFILES & CHANNELS
             </span>
 
+            <div className="flex items-center gap-2 text-xs font-mono text-white/80 pb-2 border-b border-white/10">
+              <MapPin size={14} className="text-[#55FB46]" />
+              <span>NIGERIA / OPEN TO GLOBAL COLLABORATIONS</span>
+            </div>
+
             <a
               href={PERSONAL_INFO.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between py-3 border-b border-white/10 group text-white/80 hover:text-white transition-colors"
+              className="flex items-center justify-between py-2.5 border-b border-white/10 group text-white/80 hover:text-white transition-colors"
             >
               <div className="flex items-center gap-3">
                 <Github size={16} className="text-white/60 group-hover:text-white" />
@@ -104,7 +119,7 @@ export const ContactSection: React.FC = () => {
               href={PERSONAL_INFO.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between py-3 border-b border-white/10 group text-white/80 hover:text-white transition-colors"
+              className="flex items-center justify-between py-2.5 border-b border-white/10 group text-white/80 hover:text-white transition-colors"
             >
               <div className="flex items-center gap-3">
                 <Linkedin size={16} className="text-white/60 group-hover:text-white" />
@@ -117,7 +132,7 @@ export const ContactSection: React.FC = () => {
               href={PERSONAL_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between py-3 border-b border-white/10 group text-white/80 hover:text-white transition-colors"
+              className="flex items-center justify-between py-2.5 border-b border-white/10 group text-white/80 hover:text-white transition-colors"
             >
               <div className="flex items-center gap-3">
                 <Instagram size={16} className="text-white/60 group-hover:text-white" />
@@ -125,10 +140,6 @@ export const ContactSection: React.FC = () => {
               </div>
               <ArrowUpRight size={14} className="text-white/40 group-hover:text-[#55FB46] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-
-            <div className="pt-3 text-[11px] font-mono text-white/40">
-              LOCATION: NIGERIA / OPEN TO REMOTE & GLOBAL COLLABORATIONS
-            </div>
           </div>
         </div>
       </div>

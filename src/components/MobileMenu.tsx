@@ -109,18 +109,18 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
-        <div className="text-xs text-white/50 uppercase tracking-widest">
+        <div className="text-xs text-white/50 uppercase tracking-widest font-mono">
           {PERSONAL_INFO.title}
         </div>
         <div className="flex items-center justify-between text-xs text-white/70">
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
-            className="hover:text-[#55FB46] transition-colors flex items-center gap-1"
+            className="hover:text-[#55FB46] transition-colors flex items-center gap-1 font-mono"
           >
             {PERSONAL_INFO.email}
             <ArrowUpRight size={12} />
           </a>
-          <span className="text-white/40">2026 EDITION</span>
+          <span className="text-white/40 font-mono">2026 EDITION</span>
         </div>
       </div>
     </div>

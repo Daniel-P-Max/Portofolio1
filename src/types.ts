@@ -2,19 +2,21 @@ export interface Project {
   id: string;
   number: string;
   title: string;
+  cardTitle: string;
   category: string;
   tagline: string;
   description: string;
-  stage: 'Active Development' | 'Prototype & Architecture' | 'Active Content Engine' | 'Experimental Build';
+  stage: 'Live Website' | 'Hospitality Website Concept' | 'Active Development' | 'Experimental Build';
   year: string;
   technologies: string[];
-  highlights: string[];
-  architectureNotes?: string;
-  previewType: 'app' | 'lms' | 'media' | 'experiment';
-  links?: {
-    demo?: string;
-    github?: string;
-  };
+  verifiedFeatures: string[];
+  reservationFields?: string[];
+  liveUrl?: string;
+  isConcept?: boolean;
+  businessObjective?: string;
+  designDirection?: string;
+  responsiveConsiderations?: string;
+  previewTheme: 'restaurant' | 'nightlife' | 'salon' | 'general';
 }
 
 export interface ExperimentItem {

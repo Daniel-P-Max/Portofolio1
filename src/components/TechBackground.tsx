@@ -71,8 +71,8 @@ export const TechBackground: React.FC = () => {
       time += 0.008;
       ctx.clearRect(0, 0, width, height);
 
-      // Deep dark base
-      ctx.fillStyle = '#000000';
+      // Deep dark base matching color system #0B0B0B
+      ctx.fillStyle = '#0B0B0B';
       ctx.fillRect(0, 0, width, height);
 
       // Draw faint architectural grid coordinates (subtle engineering aesthetic)

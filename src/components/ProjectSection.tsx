@@ -21,24 +21,25 @@ export const ProjectSection: React.FC = () => {
               FEATURED WORK
             </h2>
           </div>
-          <div className="text-xs sm:text-sm font-mono text-white/60 sm:text-right max-w-xs">
-            Practical software, AI-assisted products, and experimental pipelines developed through genuine hands-on building.
+          <div className="text-xs sm:text-sm font-mono text-white/60 sm:text-right max-w-sm">
+            Practical web applications, restaurant hospitality platforms, and digital product architectures developed with modern technology.
           </div>
         </div>
 
         {/* Project List */}
         <div className="space-y-0">
-          {PROJECTS.map((project) => (
+          {PROJECTS.map((project, index) => (
             <ProjectItem
               key={project.id}
               project={project}
+              index={index}
               onSelect={setSelectedProject}
             />
           ))}
         </div>
 
         {/* Pipeline Footer Note */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-white/40">
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs text-white/40">
           <div>
             MORE BUILDS CURRENTLY IN ACTIVE REPOSITORIES
           </div>
